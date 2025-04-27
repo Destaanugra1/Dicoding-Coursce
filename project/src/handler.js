@@ -75,33 +75,45 @@ const addBookHandler = (request, h) => {
   return response;
 };
 
-const getAllBooksHandler = (request) => {
+const getAllBooksHandler = (request, h) => {
   const { name, reading, finished } = request.query;
 
-  let filteredBooks = [...books];
+  let filteredBooks = books;
 
-  if (name) {
-    filteredBooks = filteredBooks.filter((b) =>
-      b.name.toLowerCase().includes(name.toLowerCase())
+  // Filter berdasarkan name (jika ada)
+  if (name !== undefined) {
+    filteredBooks = filteredBooks.filter((book) =>
+      book.name.toLowerCase().includes(name.toLowerCase())
     );
   }
 
+  // Filter berdasarkan reading (jika ada)
   if (reading !== undefined) {
-    const isReading = reading === '1'; // 1 = true, 0 = false
-    filteredBooks = filteredBooks.filter((b) => b.reading === isReading);
+    filteredBooks = filteredBooks.filter(
+      (book) => book.reading === (reading === '1')
+    );
   }
 
+  // Filter berdasarkan finished (jika ada)
   if (finished !== undefined) {
-    const isFinished = finished === '1'; // 1 = true, 0 = false
-    filteredBooks = filteredBooks.filter((b) => b.finished === isFinished);
+    filteredBooks = filteredBooks.filter(
+      (book) => book.finished === (finished === '1')
+    );
   }
 
-  return {
+  // Ambil hanya id, name, publisher saja
+  const booksResponse = filteredBooks.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
+  return h.response({
     status: 'success',
     data: {
-      books: filteredBooks,
+      books: booksResponse,
     },
-  };
+  });
 };
 
 const getBookByIdHandler = (request, h) => {
@@ -144,7 +156,7 @@ const editBookByIdHandler = (request, h) => {
   if (!name) {
     const response = h.response({
       status: 'fail',
-      message: 'Gagal menambahkan buku. Mohon isi nama buku',
+      message: 'Gagal memperbarui buku. Mohon isi nama buku',
     });
     response.code(400);
     return response;
@@ -154,7 +166,7 @@ const editBookByIdHandler = (request, h) => {
     const response = h.response({
       status: 'fail',
       message:
-        'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+        'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
     });
     response.code(400);
     return response;
