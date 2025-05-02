@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <a href="index.html">MyBrand</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#footer">Footer</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <article class="article">
+        <h1>Apa itu SQL Injection?</h1>
+        <p>
+          SQL Injection adalah teknik serangan siber di mana penyerang
+          menyisipkan kode SQL berbahaya ke dalam input aplikasi web yang
+          kemudian dieksekusi oleh database server.
+        </p>
+        <p>
+          Serangan ini terjadi ketika aplikasi web tidak memvalidasi atau
+          membersihkan input pengguna dengan tepat sebelum menyisipkannya ke
+          dalam query SQL. Penyerang dapat memanipulasi query untuk mengakses,
+          memodifikasi, atau menghapus data sensitif dalam database.
+        </p>
+        <p>
+          Contoh serangan sederhana adalah memasukkan
+          <code>' OR '1'='1</code> pada kolom username login, yang dapat
+          mengakali sistem untuk memberikan akses tanpa password yang benar.
+          Untuk mencegah SQL Injection, pengembang harus menggunakan prepared
+          statements, parameterized queries, dan validasi input yang ketat.
+        </p>
+      </article>
+
+      <aside class="sidebar">
+        <h2></h2>
+        <img src="img/sql.png" width="50px" alt="Team photo" />
+        <p>Ilustrasi Sql Injextion Gambar</p>
+      </aside>
+    </main>
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>
+            Kami adalah komunitas yang berfokus pada keamanan web dan pemahaman
+            berbagai bentuk serangan siber termasuk SQL Injection.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>Email: exmpel@gmail.com</p>
+          <p>Phone: +62 ++++</p>
+          <p>Address: Cyber Street 123, Tech City</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Info lebih Lanjut Follow Us</h3>
+          <ul class="social-media">
+            <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2023 MyBrand. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.header {
+  background-color: #000;
+  padding: 15px 30px;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 30px;
+  gap: 30px;
+}
+
+/* Artikel kiri */
+.article {
+  flex: 2;
+  min-width: 300px;
+}
+
+/* Sidebar kanan */
+.sidebar {
+  flex: 1;
+  max-width: 300px;
+  align-self: flex-start;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 30px;
+}
+
+.sidebar img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+/* ...existing code... */
+
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 40px;
+  border-top: 4px solid #00bcd4;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 0 30px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #00bcd4;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.footer-section h3:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 2px;
+  background-color: #00bcd4;
+}
+
+.footer-section p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-media li {
+  list-style: none;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-media a:hover {
+  background-color: #00bcd4;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+/* ...existing code... */
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
